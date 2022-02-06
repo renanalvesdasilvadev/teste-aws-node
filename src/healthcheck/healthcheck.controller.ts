@@ -8,4 +8,9 @@ export class HealthcheckController {
         return "okay"
     }
 
+    @Get("bd")
+    async bd(){
+        return "bdOkay"
+    }
+
 }
