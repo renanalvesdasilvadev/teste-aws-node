@@ -10,7 +10,12 @@ export class HealthcheckController {
 
     @Get("bd")
     async bd(){
-        return "bdOkay"
+        return "bdOk"
+    }
+
+    @Get("sistema")
+    async bd(){
+        return "sistemaOk"
     }
 
 }
