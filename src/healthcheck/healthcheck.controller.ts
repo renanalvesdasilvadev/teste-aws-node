@@ -4,18 +4,8 @@ import { Controller, Get, Post, Body, Put, Param, Delete, Query } from '@nestjs/
 export class HealthcheckController {
 
     @Get()
-    async health(){
+    async health() {
         return "okay"
-    }
-
-    @Get("bd")
-    async bd(){
-        return "bdOk"
-    }
-
-    @Get("sistema")
-    async bd(){
-        return "sistemaOk"
     }
 
 }
