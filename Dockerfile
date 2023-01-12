@@ -1,4 +1,4 @@
-FROM node:12.19.0-alpine3.9
+FROM --platform=linux/amd64 node:12.19.0-alpine3.9
 
 # Create app directory
 WORKDIR /usr/src/app
