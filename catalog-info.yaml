@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: teste-aws-node
+  annotations:
+    github.com/project-slug: renansilvakabum/teste-aws-node
+spec:
+  type: other
+  lifecycle: unknown
+  owner: teste
