@@ -8,7 +8,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 868315650324.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 868315650324.dkr.ecr.us-east-2.amazonaws.com
   build:
     commands:
       - echo Build started on `date`
@@ -19,7 +19,4 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 868315650324.dkr.ecr.us-east-1.amazonaws.com/node-teste:latest
-artifacts:
-  files:
-  - appspec.yaml
+      - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/tst/nodejs-system:latest
