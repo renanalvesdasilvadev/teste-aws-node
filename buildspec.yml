@@ -14,7 +14,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t node-teste .
-      - docker tag node-teste:latest 868315650324.dkr.ecr.us-east-1.amazonaws.com/node-teste:latest
+      - docker tag node-teste:latest 868315650324.dkr.ecr.us-east-2.amazonaws.com/tst/nodejs-system:latest
   post_build:
     commands:
       - echo Build completed on `date`
