@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Put, Param, Delete, Query } from '@nestjs/common';
 
-@Controller('hc')
+@Controller('nodejs-teste/hc')
 export class HealthcheckController {
 
     @Get()
