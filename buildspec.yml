@@ -6,6 +6,7 @@ phases:
       docker: 19
   pre_build:
     commands:
+      - PACKAGE_VERSION=$(node -e "console.log(require('./package.json').version)")
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 868315650324.dkr.ecr.us-east-2.amazonaws.com
@@ -20,3 +21,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/tst/nodejs-system:latest
+      - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/tst/nodejs-system:${PACKAGE_VERSION}
