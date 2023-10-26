@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  login:
+    commands:
+      - VERSION=$(node -e "console.log(require('./deploy.json').version)")      
+      - echo Logging in to Amazon ECR...
+      - aws --version
+      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 868315650324.dkr.ecr.us-east-2.amazonaws.com
+  create_tag:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker pull 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:${VERSION}
+      - docker tag 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:${VERSION} 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:latest
+  put_latest:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:latest
