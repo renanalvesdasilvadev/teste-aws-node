@@ -1,9 +1,0 @@
-version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::ECS::Service
-      Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:868315650324:task-definition/node-teste:1"
-        LoadBalancerInfo:
-          ContainerName: "nodejs-teste"
-          ContainerPort: 3000

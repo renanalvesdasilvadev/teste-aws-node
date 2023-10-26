@@ -1,0 +1,17 @@
+{
+  "version": 0.0,
+  "Resources": [
+    {
+      "nodejs-teste": {
+        "Type": "AWS::ECS::TaskSet",
+        "Properties": {
+          "TaskDefinition": "arn:aws:ecs:us-east-2:868315650324:task-definition/nodejs-teste:2",
+          "LoadBalancerInfo": {
+            "ContainerName": "nodejs-teste",
+            "ContainerPort": 3000
+          }
+        }
+      }
+    }
+  ]
+}
