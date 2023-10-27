@@ -7,4 +7,9 @@ export class DummyController {
     async teste() {
         return "chegou no dummy"
     }
+
+    @Get('murilo')
+    async murilo() {
+        return "chegou no murilo"
+    }
 }
