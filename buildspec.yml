@@ -11,10 +11,18 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:latest .
-      - docker tag 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:latest 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:${PACKAGE_VERSION}
+      - docker build -t ${IMAGE}:${PACKAGE_VERSION} .      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...      
-      - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:${PACKAGE_VERSION}
+      - docker push ${IMAGE}:${PACKAGE_VERSION}
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:latest
+      - printf '[{"name":"%s","imageUri":"%s"}]' ${APPLICATION} ${IMAGE}:${PACKAGE_VERSION} > imagedefinitions.json
+artifacts:
+    files: 
+      - imagedefinitions.json
