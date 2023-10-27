@@ -21,7 +21,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
-      - docker push 868315650324.dkr.ecr.us-east-2.amazonaws.com/nodejs-system:latest
+      - docker push ${IMAGE}:${PACKAGE_VERSION}
       - printf '[{"name":"%s","imageUri":"%s"}]' ${APPLICATION} ${IMAGE}:${PACKAGE_VERSION} > imagedefinitions.json
 artifacts:
     files: 
